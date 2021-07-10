@@ -1,10 +1,12 @@
 import express from 'express';
-const app = express();
+import { connectDB } from './database';
 
-// this middleware substitutes the trditional body-parser:
+const app = express();
+connectDB(); // connection with the database
+
+// this middleware substitutes the traditional body-parser:
 app.use(express.json());
 
-const PORT = process.env.PORT | 5000;
-app.listen(PORT, (req, res) => {
+app.listen(5000, () => {
   console.log('Server up and running on port 5000');
 });
