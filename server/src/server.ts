@@ -1,11 +1,10 @@
 import express from 'express';
-import { connectDB } from './database';
-
+import { checkError } from './middleware/checkError';
 const app = express();
-connectDB(); // connection with the database
 
 // this middleware substitutes the traditional body-parser:
 app.use(express.json());
+app.use(checkError);
 
 app.listen(5000, () => {
   console.log('Server up and running on port 5000');
