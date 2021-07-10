@@ -20,7 +20,7 @@
 <br/>
 
 <h2>🔍 <strong>Requirements</strong></h2>
-<p>👉 <a href="./assets/files/frontend_requirements.pdf" target="_blank">Link</a></p>
+<p>👉 Frontend specifications [ <a href="./assets/files/frontend_requirements.pdf" target="_blank">Link</a> ].</p>
 <!-- 
 <ul>
   <li><strong><u>S</u></strong>ingle Responsability Principle</li>
