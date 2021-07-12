@@ -1,6 +1,5 @@
 import request from 'supertest';
 import { connectDB, disconnectDB } from '../../database';
-// import mongoose from 'mongoose';
 import { app } from '../../app';
 
 describe('Test user route', () => {
@@ -26,6 +25,12 @@ describe('Test user route', () => {
     });
 
     expect(response.status).toBe(400);
+  });
+
+  it('shoulde be able to fetch all users', async () => {
+    const response = await request(app).get('/user/all');
+
+    expect(response.status).toBe(200);
   });
 
   afterAll(async () => {

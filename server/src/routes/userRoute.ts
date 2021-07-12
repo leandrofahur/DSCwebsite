@@ -3,6 +3,10 @@ import { CreateUserController } from '../controllers/User/CreateUserController';
 import { FetchAllUsersController } from '../controllers/User/FetchAllUsersController';
 import { AuthenticateUserController } from '../controllers/User/AuthenticateUserController';
 
+import { ensureAuthenticated } from '../middleware/ensureAuthenticated';
+import { ensureAdmin } from '../middleware/ensureAdmin';
+import { DeleteUserController } from '../controllers/User/DeleteUserController';
+
 const userRoute = Router();
 
 /*
@@ -22,6 +26,20 @@ userRoute.post('/user', createUserController.handle);
 
 const fetchAllUsersController = new FetchAllUsersController();
 userRoute.get('/user/all', fetchAllUsersController.handle);
+
+/*
+ * @route:  Deleete /user
+ * @desc:   Delete user
+ * @access: Private
+ */
+
+const deleteUserController = new DeleteUserController();
+userRoute.delete(
+  '/user/:id',
+  ensureAdmin,
+  ensureAuthenticated,
+  deleteUserController.handle,
+);
 
 /*
  * @route:  POST /login

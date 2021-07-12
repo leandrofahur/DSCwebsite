@@ -1,5 +1,4 @@
 import { User, IUser } from '../../models/User';
-import { hash } from 'bcryptjs';
 
 class FetchAllUsersService {
   public async execute() {
