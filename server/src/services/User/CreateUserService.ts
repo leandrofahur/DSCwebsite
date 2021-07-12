@@ -8,6 +8,8 @@ class CreateUserService {
       throw new Error('Incorrect credentials');
     }
 
+    // @TODO: check all required fields:
+
     // 2nd step: check if the user already exists using the email
     const userAlreadyExists = await User.findOne({ email });
 
