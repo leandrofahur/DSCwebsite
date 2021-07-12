@@ -9,21 +9,21 @@ interface IAuthenticate {
 
 class AuthenticateUserService {
   public async execute({ email, password }: IAuthenticate) {
-    // 1st: check if user exists:
+    // 1st: check if user exists
     const user = await User.findOne({ email });
 
     if (!user) {
       throw new Error('Incorrect credentials');
     }
 
-    // 2nd: check the password with the hashed:
+    // 2nd: check the password with the hashed
     const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
       throw new Error('Incorrect credentials');
     }
 
-    // 3rd: return token:
+    // 3rd: return token
     const payload = {
       email: user.email,
     };

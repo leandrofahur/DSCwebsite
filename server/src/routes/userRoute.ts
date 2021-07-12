@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { CreateUserController } from '../controllers/User/CreateUserController';
+import { FetchAllUsersController } from '../controllers/User/FetchAllUsersController';
 import { AuthenticateUserController } from '../controllers/User/AuthenticateUserController';
 
 const userRoute = Router();
@@ -12,6 +13,15 @@ const userRoute = Router();
 
 const createUserController = new CreateUserController();
 userRoute.post('/user', createUserController.handle);
+
+/*
+ * @route:  GET /user/all
+ * @desc:   Fetch all users from the collection
+ * @access: Public
+ */
+
+const fetchAllUsersController = new FetchAllUsersController();
+userRoute.get('/user/all', fetchAllUsersController.handle);
 
 /*
  * @route:  POST /login
