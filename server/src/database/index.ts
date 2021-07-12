@@ -1,7 +1,6 @@
 import path from 'path';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-dotenv.config({ path: path.join(__dirname + '../../../.env') });
 
 const db = mongoose;
 
@@ -18,14 +17,12 @@ const connectDB = async () => {
       useCreateIndex: true,
       useUnifiedTopology: true,
     });
-    console.log('MongoDB up and running...');
   } catch (err) {
     throw new Error(err.message);
   }
 };
 
 const disconnectDB = async () => {
-  console.log('MongoDB disconnected...');
   await db.connection.close();
 };
 
