@@ -11,7 +11,7 @@ class DeleteUserService {
     // @TODO: remove posts
 
     // 2nd: delete user
-    await User.remove({ _id: id });
+    await User.deleteOne({ _id: id });
     return 'User deleted!';
   }
 }
