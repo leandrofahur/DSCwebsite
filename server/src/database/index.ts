@@ -23,9 +23,9 @@ const connectDB = async () => {
 };
 
 const disconnectDB = async () => {
-  if (process.env.NODE_ENV == 'test') {
-    await db.connection.dropDatabase();
-  }
+  // if (process.env.NODE_ENV == 'test') {
+  //   await db.connection.dropDatabase();
+  // }
   await db.connection.close();
 };
 

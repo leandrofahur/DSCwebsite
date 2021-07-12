@@ -3,7 +3,7 @@ import { connectDB, disconnectDB } from '../../database';
 import { app } from '../../app';
 
 let token: string;
-// let user: { id: string; email: string; password: string; isExec: boolean };
+let user_id: string;
 
 describe('Test user route', () => {
   beforeAll(async () => {
@@ -34,6 +34,22 @@ describe('Test user route', () => {
     const response = await request(app).get('/user/all');
 
     expect(response.status).toBe(200);
+    user_id = response.body[0]._id;
+  });
+
+  it('shoulde be able to delete itself', async () => {
+    const fetchToken = await request(app).post('/login').send({
+      email: 'kaiser@email.com',
+      password: 'kaiser123',
+    });
+
+    token = fetchToken.body;
+
+    const response = await request(app)
+      .delete(`/user/${user_id}`)
+      .set('Authorization', `Bearer ${token}`);
+
+    expect(response.body).toBe('User deleted!');
   });
 
   afterAll(async () => {
