@@ -11,8 +11,6 @@ export async function ensureAdmin(
     id: user_id,
   });
 
-  console.log('test');
-
   if (isExec) {
     return next();
   }

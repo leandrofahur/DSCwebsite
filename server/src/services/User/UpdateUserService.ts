@@ -4,7 +4,7 @@ import { hash } from 'bcryptjs';
 interface IUpdate {
   password: string;
   isExec: boolean;
-  id: string;
+  readonly id: string;
 }
 
 class UpdateUserService {
@@ -16,7 +16,7 @@ class UpdateUserService {
     }
 
     // 2nd step: update user with the encrypted password
-    const user = await User.findByIdAndUpdate(
+    const user = await User.updateMany(
       { _id: id },
       {
         $set: {
@@ -27,7 +27,7 @@ class UpdateUserService {
       { new: true },
     );
 
-    return user;
+    return 'Update successful';
   }
 }
 

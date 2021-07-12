@@ -5,7 +5,7 @@ class UpdateUserController {
   public async handle(request: Request, response: Response) {
     const { id } = request.params;
     const { password, isExec } = request.body;
-    console.log(id);
+
     const updateUserService = new UpdateUserService();
 
     const status = await updateUserService.execute({

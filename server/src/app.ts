@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import { connectDB } from './database';
 import { userRoute } from './routes/userRoute';
+import { postRoute } from './routes/postRoute';
 import dotenv from 'dotenv';
 import { checkError } from './middleware/checkError';
 dotenv.config();
@@ -13,6 +14,7 @@ connectDB();
 app.use(express.json());
 
 app.use(userRoute);
+app.use(postRoute);
 
 app.use(checkError);
 
