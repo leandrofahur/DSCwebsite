@@ -2,6 +2,9 @@ import request from 'supertest';
 import { connectDB, disconnectDB } from '../../database';
 import { app } from '../../app';
 
+let token: string;
+// let user: { id: string; email: string; password: string; isExec: boolean };
+
 describe('Test user route', () => {
   beforeAll(async () => {
     connectDB();
@@ -11,7 +14,7 @@ describe('Test user route', () => {
     const response = await request(app).post('/user').send({
       email: 'kaiser@email.com',
       password: 'kaiser123',
-      isExec: false,
+      isExec: true,
     });
 
     expect(response.status).toBe(200);

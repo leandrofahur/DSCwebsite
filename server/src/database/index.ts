@@ -24,7 +24,7 @@ const connectDB = async () => {
 
 const disconnectDB = async () => {
   if (process.env.NODE_ENV == 'test') {
-    db.connection.dropCollection('users');
+    await db.connection.dropDatabase();
   }
   await db.connection.close();
 };
