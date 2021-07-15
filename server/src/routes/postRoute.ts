@@ -25,7 +25,7 @@ const deletePostController = new DeletePostController();
 postRoute.delete('/post/:id', deletePostController.handle);
 
 /*
- * @route:  FET /post/all
+ * @route:  GET /post/all
  * @desc:   Fetch all posts.
  * @access: Public
  */

@@ -33,8 +33,8 @@ describe('Test user route', () => {
   it('shoulde be able to fetch all users', async () => {
     const response = await request(app).get('/user/all');
 
-    expect(response.status).toBe(200);
     user_id = response.body[0]._id;
+    expect(response.status).toBe(200);
   });
 
   it('shoulde be able to update itself', async () => {
@@ -44,7 +44,7 @@ describe('Test user route', () => {
     });
 
     token = fetchToken.body;
-
+    console.log(user_id);
     const response = await request(app)
       .put(`/user/${user_id}`)
       .set('Authorization', `Bearer ${token}`)
