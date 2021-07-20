@@ -9,6 +9,8 @@ import { ensureAuthenticated } from '../middleware/ensureAuthenticated';
 import { ensureAdmin } from '../middleware/ensureAdmin';
 
 import { celebrate, Joi, Segments } from 'celebrate';
+import joiObjectId from 'joi-objectid';
+const myJoiObjectId = joiObjectId(Joi);
 
 const userRoute = Router();
 
@@ -43,10 +45,10 @@ userRoute.put(
   ensureAuthenticated,
   celebrate({
     [Segments.PARAMS]: {
-      id: Joi.string().required(),
+      id: myJoiObjectId().required(),
     },
     [Segments.BODY]: {
-      password: Joi.string().required(),
+      password: Joi.string(),
       isExec: Joi.boolean(),
     },
   }),
@@ -73,6 +75,11 @@ userRoute.delete(
   '/user/:id',
   ensureAdmin,
   ensureAuthenticated,
+  celebrate({
+    [Segments.PARAMS]: {
+      id: myJoiObjectId().required(),
+    },
+  }),
   deleteUserController.handle,
 );
 
