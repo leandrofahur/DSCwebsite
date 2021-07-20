@@ -8,6 +8,8 @@ import { UpdateUserController } from '../controllers/User/UpdateUserController';
 import { ensureAuthenticated } from '../middleware/ensureAuthenticated';
 import { ensureAdmin } from '../middleware/ensureAdmin';
 
+import { celebrate, Joi, Segments } from 'celebrate';
+
 const userRoute = Router();
 
 /*
@@ -17,7 +19,17 @@ const userRoute = Router();
  */
 
 const createUserController = new CreateUserController();
-userRoute.post('/user', createUserController.handle);
+userRoute.post(
+  '/user',
+  celebrate({
+    [Segments.BODY]: {
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+      isExec: Joi.boolean(),
+    },
+  }),
+  createUserController.handle,
+);
 
 /*
  * @route:  PUT /user
@@ -26,7 +38,20 @@ userRoute.post('/user', createUserController.handle);
  */
 
 const updateUserController = new UpdateUserController();
-userRoute.put('/user/:id', ensureAuthenticated, updateUserController.handle);
+userRoute.put(
+  '/user/:id',
+  ensureAuthenticated,
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().required(),
+    },
+    [Segments.BODY]: {
+      password: Joi.string().required(),
+      isExec: Joi.boolean(),
+    },
+  }),
+  updateUserController.handle,
+);
 
 /*
  * @route:  GET /user/all
