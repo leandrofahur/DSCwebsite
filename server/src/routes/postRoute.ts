@@ -4,6 +4,10 @@ import { CreatePostController } from '../controllers/Post/CreatePostController';
 import { DeletePostController } from '../controllers/Post/DeletePostController';
 import { FetchAllPostsController } from '../controllers/Post/FetchAllPostsController';
 
+import { celebrate, Joi, Segments } from 'celebrate';
+import joiObjectId from 'joi-objectid';
+const myJoiObjectId = joiObjectId(Joi);
+
 const postRoute = Router();
 
 /*
@@ -13,7 +17,15 @@ const postRoute = Router();
  */
 
 const createPostController = new CreatePostController();
-postRoute.post('/post', createPostController.handle);
+postRoute.post(
+  '/post',
+  celebrate({
+    [Segments.BODY]: {
+      post_type: Joi.string().required(),
+    },
+  }),
+  createPostController.handle,
+);
 
 /*
  * @route:  DELETE /post/:id
@@ -22,7 +34,15 @@ postRoute.post('/post', createPostController.handle);
  */
 
 const deletePostController = new DeletePostController();
-postRoute.delete('/post/:id', deletePostController.handle);
+postRoute.delete(
+  '/post/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: myJoiObjectId().required(),
+    },
+  }),
+  deletePostController.handle,
+);
 
 /*
  * @route:  GET /post/all
