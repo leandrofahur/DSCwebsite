@@ -28,6 +28,8 @@ $ npm run dev
 $ yarn dev
 ```
 
+
+<hr>
 <br>
 
 <h2>🥒 <strong>Testing</strong></h2>
