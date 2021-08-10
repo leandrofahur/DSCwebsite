@@ -2,7 +2,17 @@ import { User, IUser } from '../../models/User';
 import { hash } from 'bcryptjs';
 
 class CreateUserService {
-  public async execute({ email, password, isExec }: IUser) {
+  public async execute({
+    firstName,
+    lastName,
+    studentNumber,
+    signupDate,
+    prefferedPronoum,
+    phone,
+    email,
+    password,
+    isExec,
+  }: IUser) {
     // 1st step: check if email is empty
     if (!email) {
       throw new Error('Incorrect credentials');
@@ -21,6 +31,12 @@ class CreateUserService {
 
     // 3rd: create a new user with the encrypted password
     const user = new User({
+      firstName,
+      lastName,
+      studentNumber,
+      signupDate,
+      prefferedPronoum,
+      phone,
       email,
       password: encryptedPassword,
       isExec,

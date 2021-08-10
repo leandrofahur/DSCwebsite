@@ -2,12 +2,12 @@ import { Schema, model, Date } from 'mongoose';
 
 // Create an interface representing a document:
 export interface IUser {
-  // firstName: string;
-  // lastName: string;
-  // studentNumber: number;
-  // signupDate: Date;
-  // prefferedPronoum?: string[];
-  // phone?: { canada: string; whatsapp: string };
+  firstName: string;
+  lastName: string;
+  studentNumber: number;
+  signupDate: Date;
+  prefferedPronoum?: string[];
+  phone?: { canada: string; whatsapp: string };
   avatar?: string;
   // bio?: string;
   // social?: { website: string; linkedin: string; github: string };
@@ -24,36 +24,36 @@ export interface IUser {
 
 // Create an Schema associating with it the user interface (IUser)
 const UserSchema = new Schema<IUser>({
-  // firstName: {
-  //   type: String,
-  //   required: true,
-  // },
-  // lastname: {
-  //   type: String,
-  //   required: true,
-  // },
-  // studentNumber: {
-  //   type: String,
-  //   required: false,
-  // },
-  // signupDate: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
-  // preferredPronoum: {
-  //   type: [String],
-  //   required: false,
-  // },
-  // phone: {
-  //   whatsapp: {
-  //     type: String,
-  //     required: false,
-  //   },
-  //   canadian: {
-  //     type: String,
-  //     required: false,
-  //   },
-  // },
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  studentNumber: {
+    type: String,
+    required: false,
+  },
+  signupDate: {
+    type: Date,
+    default: Date.now,
+  },
+  preferredPronoum: {
+    type: [String],
+    required: false,
+  },
+  phone: {
+    whatsapp: {
+      type: String,
+      required: false,
+    },
+    canadian: {
+      type: String,
+      required: false,
+    },
+  },
   avatar: {
     type: String,
     required: false,

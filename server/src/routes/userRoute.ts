@@ -30,6 +30,15 @@ userRoute.post(
   '/user',
   celebrate({
     [Segments.BODY]: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      studentNumber: Joi.number().required(),
+      signupDate: Joi.date().required(),
+      prefferedPronoum: Joi.array().items(Joi.string()),
+      phone: Joi.object().keys({
+        canadian: Joi.string(),
+        whatsapp: Joi.string(),
+      }),
       email: Joi.string().email().required(),
       password: Joi.string().required(),
       isExec: Joi.boolean(),
