@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { decode, verify } from 'jsonwebtoken';
+import { verify } from 'jsonwebtoken';
 
 interface IPayload {
   sub: string;

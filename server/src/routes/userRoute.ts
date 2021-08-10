@@ -4,6 +4,7 @@ import { FetchAllUsersController } from '../controllers/User/FetchAllUsersContro
 import { AuthenticateUserController } from '../controllers/User/AuthenticateUserController';
 import { DeleteUserController } from '../controllers/User/DeleteUserController';
 import { UpdateUserController } from '../controllers/User/UpdateUserController';
+import { UpdateUserAvatarController } from '../controllers/User/UpdateUserAvatarController';
 
 import { ensureAuthenticated } from '../middleware/ensureAuthenticated';
 import { ensureAdmin } from '../middleware/ensureAdmin';
@@ -11,6 +12,10 @@ import { ensureAdmin } from '../middleware/ensureAdmin';
 import { celebrate, Joi, Segments } from 'celebrate';
 import joiObjectId from 'joi-objectid';
 const myJoiObjectId = joiObjectId(Joi);
+
+import multer from 'multer';
+import uploadConfig from '../config/upload';
+const upload = multer(uploadConfig);
 
 const userRoute = Router();
 
@@ -91,5 +96,19 @@ userRoute.delete(
 
 const authenticateUserController = new AuthenticateUserController();
 userRoute.post('/login', authenticateUserController.handle);
+
+/*
+ * @route:  PUT /avatar
+ * @desc:   Update user avatar.
+ * @access: Private
+ */
+
+const updateUserAvatarController = new UpdateUserAvatarController();
+userRoute.patch(
+  '/user/:id',
+  ensureAuthenticated,
+  upload.single('avatar'),
+  updateUserAvatarController.handle,
+);
 
 export { userRoute };

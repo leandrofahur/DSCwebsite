@@ -8,7 +8,7 @@ export interface IUser {
   // signupDate: Date;
   // prefferedPronoum?: string[];
   // phone?: { canada: string; whatsapp: string };
-  // avatar?: string;
+  avatar?: string;
   // bio?: string;
   // social?: { website: string; linkedin: string; github: string };
   // codingSkills?: string[];
@@ -54,10 +54,10 @@ const UserSchema = new Schema<IUser>({
   //     required: false,
   //   },
   // },
-  // avatar: {
-  //   type: String,
-  //   required: false,
-  // },
+  avatar: {
+    type: String,
+    required: false,
+  },
   // bio: {
   //   type: String,
   //   required: false,
