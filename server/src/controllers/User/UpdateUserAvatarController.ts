@@ -3,7 +3,8 @@ import { UpdateUserAvatarService } from '../../services/User/UpdateUserAvatarSer
 
 class UpdateUserAvatarController {
   public async handle(request: Request, response: Response) {
-    const { user_id } = request.params;
+    const user_id = request.user.id;
+
     const avatarFileName = request.file?.filename as string;
 
     const updateUserAvatarService = new UpdateUserAvatarService();

@@ -2,6 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
 interface IPayload {
+  iat: number;
+  exp: number;
   sub: string;
 }
 
@@ -26,7 +28,7 @@ export function ensureAuthenticated(
     const { sub } = verify(token, process.env.JWT_SECRET) as IPayload;
 
     // fetch user information
-    request.user_id = sub;
+    request.user = { id: sub };
 
     return next();
   } catch (err) {

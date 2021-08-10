@@ -11,8 +11,7 @@ interface IRequest {
 
 class UpdateUserAvatarService {
   public async execute({ user_id, avatarFileName }: IRequest) {
-    const user = await User.findOne({ user_id: user_id }).select('-password');
-    console.log(user);
+    const user = await User.findOne({ _id: user_id }).select('-password');
 
     if (!user) {
       throw new Error('User not found');

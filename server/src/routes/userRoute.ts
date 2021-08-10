@@ -105,7 +105,7 @@ userRoute.post('/login', authenticateUserController.handle);
 
 const updateUserAvatarController = new UpdateUserAvatarController();
 userRoute.patch(
-  '/user/:id',
+  '/user',
   ensureAuthenticated,
   upload.single('avatar'),
   updateUserAvatarController.handle,
