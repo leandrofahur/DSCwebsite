@@ -9,6 +9,15 @@ class CreateUserService {
     signupDate,
     prefferedPronoum,
     phone,
+    avatar,
+    bio,
+    social,
+    codingSkills,
+    userType,
+    program,
+    expectedGraduationDate,
+    courses,
+    isWorkingDeveloper,
     email,
     password,
     isExec,
@@ -18,14 +27,20 @@ class CreateUserService {
       throw new Error('Incorrect credentials');
     }
 
-    // @TODO: check all required fields:
-
     // 2nd step: check if the user already exists using the email
     const userAlreadyExists = await User.findOne({ email });
 
     if (userAlreadyExists) {
       throw new Error('User already exists');
     }
+
+    if (isExec) {
+      isExec = false;
+    }
+
+    // @TODO: save array of preffered pronoums:
+    // 3rd step: check all the other variables:
+    // treat the case for array of types.
 
     const encryptedPassword = await hash(password, 8);
 
@@ -37,6 +52,15 @@ class CreateUserService {
       signupDate,
       prefferedPronoum,
       phone,
+      avatar,
+      bio,
+      social,
+      codingSkills,
+      userType,
+      program,
+      expectedGraduationDate,
+      courses,
+      isWorkingDeveloper,
       email,
       password: encryptedPassword,
       isExec,
