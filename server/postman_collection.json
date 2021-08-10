@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"leandro@email.com\",\n    \"password\": \"ocean123\",\n    \"isExec\": true\n}",
+							"raw": "{\n    \"firstName\":\"Leandro\",\n    \"lastName\": \"Machado\",\n    \"studentNumber\": 1234567890,\n    \"signupDate\": \"{{$timestamp}}\",\n    \"prefferedPronoum\": [\"he, him, his\"],\n    \"phone\": {\n        \"canadian\":\"1112223333\",\n        \"whatsapp\":\"1112223333\"\n    },\n    \"bio\":\"I am a developer\",\n    \"social\":{\n        \"linkedin\":\"https://www.linkedin.com/in/leandro-miranda-fahur-machado/\",\n        \"github\":\"https://github.com/leandrofahur\"\n    },\n    \"codingSkills\": [\"C++\", \"Node.js\", \"React.js\", \"Next.js\", \"Typescript\"],\n    \"userType\": 0,\n    \"program\": \"CS Post Degree\",\n    \"expectedGraduationDate\": \"{{$timestamp}}\",\n    \"courses\": [\"CSIS 1234\", \"CSIS 5678\"],\n    \"isWorkingDeveloper\": false,\n    \"email\": \"leandro@email.com\",\n    \"password\": \"leandro123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"ocean@email.com\",\n    \"password\": \"ocean123\"\n}",
+							"raw": "{\n    \"email\": \"leandro@email.com\",\n    \"password\": \"leandro123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -168,7 +168,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlYW5kcm9AZW1haWwuY29tIiwiaWF0IjoxNjI4NTcxNTY4LCJleHAiOjE2Mjg2NTc5NjgsInN1YiI6IjYxMTIwM2RjNzJjZjczYTMyMzkxMmE1NCJ9.Wn0GfYZDp-XvMpUiv4LcHGG3A_BMEYIeQtr2bHQWuc0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlYW5kcm9AZW1haWwuY29tIiwiaWF0IjoxNjI4NjM4NDIwLCJleHAiOjE2Mjg3MjQ4MjAsInN1YiI6IjYxMTMwY2FhOWU1MzcyYjllNWI0MWZiZCJ9.sstq9JOudi_JYIhWH1LWYf8BIpUkjxP_wRgF7q7ghJA",
 									"type": "string"
 								}
 							]
