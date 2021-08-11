@@ -95,7 +95,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9jZWFuQGVtYWlsLmNvbSIsImlhdCI6MTYyNjgwNzcxMCwiZXhwIjoxNjI2ODk0MTEwLCJzdWIiOiI2MGY3MWQ4MzcxNDIxYTIxMmU2NTUyYTAifQ.YrI5bL2MjBo1sn5R6QxOBXJzA5UafbgG8inbfzwnIGI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlYW5kcm9AZW1haWwuY29tIiwiaWF0IjoxNjI4NjM4NDIwLCJleHAiOjE2Mjg3MjQ4MjAsInN1YiI6IjYxMTMwY2FhOWU1MzcyYjllNWI0MWZiZCJ9.sstq9JOudi_JYIhWH1LWYf8BIpUkjxP_wRgF7q7ghJA",
 									"type": "string"
 								}
 							]
@@ -107,15 +107,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:5000/user/60f71d8371421a212e6552a0",
+							"raw": "http://localhost:5000/user",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "5000",
 							"path": [
-								"user",
-								"60f71d8371421a212e6552a0"
+								"user"
 							]
 						}
 					},
@@ -129,7 +128,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9jZWFuQGVtYWlsLmNvbSIsImlhdCI6MTYyNjgwNzcxMCwiZXhwIjoxNjI2ODk0MTEwLCJzdWIiOiI2MGY3MWQ4MzcxNDIxYTIxMmU2NTUyYTAifQ.YrI5bL2MjBo1sn5R6QxOBXJzA5UafbgG8inbfzwnIGI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlYW5kcm9AZW1haWwuY29tIiwiaWF0IjoxNjI4NjM4NDIwLCJleHAiOjE2Mjg3MjQ4MjAsInN1YiI6IjYxMTMwY2FhOWU1MzcyYjllNWI0MWZiZCJ9.sstq9JOudi_JYIhWH1LWYf8BIpUkjxP_wRgF7q7ghJA",
 									"type": "string"
 								}
 							]
@@ -138,7 +137,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"password\": \"ocean123\",\n    \"isExec\": true\n}",
+							"raw": "{\n    \"isExec\": true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,7 +145,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/user/60f71d8371421a212e6552a0",
+							"raw": "http://localhost:5000/user/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -154,7 +153,7 @@
 							"port": "5000",
 							"path": [
 								"user",
-								"60f71d8371421a212e6552a0"
+								""
 							]
 						}
 					},
