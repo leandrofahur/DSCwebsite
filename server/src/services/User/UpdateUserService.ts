@@ -2,13 +2,13 @@ import { User, IUser } from '../../models/User';
 import { hash } from 'bcryptjs';
 
 interface IUpdate {
+  readonly id: string;
   password: string;
   isExec: boolean;
-  readonly id: string;
 }
 
 class UpdateUserService {
-  public async execute({ password, isExec, id }: IUpdate) {
+  public async execute({ id, password, isExec }: IUpdate) {
     let encryptedPassword: string = '';
     // 1st: update required fields
     if (password) {

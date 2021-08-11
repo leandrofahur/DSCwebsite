@@ -3,15 +3,15 @@ import { UpdateUserService } from '../../services/User/UpdateUserService';
 
 class UpdateUserController {
   public async handle(request: Request, response: Response) {
-    const { id } = request.params;
+    const id = request.user.id;
     const { password, isExec } = request.body;
 
     const updateUserService = new UpdateUserService();
 
     const status = await updateUserService.execute({
+      id,
       password,
       isExec,
-      id,
     });
 
     return response.status(200).json(status);

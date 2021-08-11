@@ -68,12 +68,9 @@ userRoute.post(
 
 const updateUserController = new UpdateUserController();
 userRoute.put(
-  '/user/:id',
+  '/user',
   ensureAuthenticated,
   celebrate({
-    [Segments.PARAMS]: {
-      id: myJoiObjectId().required(),
-    },
     [Segments.BODY]: {
       password: Joi.string(),
       isExec: Joi.boolean(),
@@ -99,14 +96,9 @@ userRoute.get('/user/all', fetchAllUsersController.handle);
 
 const deleteUserController = new DeleteUserController();
 userRoute.delete(
-  '/user/:id',
+  '/user',
   ensureAdmin,
   ensureAuthenticated,
-  celebrate({
-    [Segments.PARAMS]: {
-      id: myJoiObjectId().required(),
-    },
-  }),
   deleteUserController.handle,
 );
 
